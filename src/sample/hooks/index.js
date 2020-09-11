@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 import { WithWillUnmount } from '../hoc';
 
-const Hooks = (props) => {
+const SampleHooks = (props) => {
   // eslint-disable-next-line
-  const [name, setName] = useState('Hooks');
+  const [name, setName] = useState('SampleHooks');
   const [count, setCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,14 +21,18 @@ const Hooks = (props) => {
   useEffect(() => {
     // ComponentDidMount
     console.log('Start Effect!');
+
+    let timer;
+
     if (!isLoading) {
-      setTimeout(() => {
+      timer = setTimeout(() => {
         setIsLoading(true);
       }, 1000);
     }
 
     return () => {
       // componentWillUnmount
+      clearTimeout(timer);
       console.log('%c Cleaning Up~ Bye Bye~', 'color: #ff00ff');
     };
     // eslint-disable-next-line
@@ -56,4 +60,4 @@ const Hooks = (props) => {
   );
 }
 
-export default WithWillUnmount(Hooks);
+export default WithWillUnmount(SampleHooks);

@@ -1,22 +1,12 @@
 # React - Memo
 
-### Concepts
+### React Concepts
 
 1. [JSX](#jsx)
 2. [Components](#components)
 3. [Lifecycle](#lifecycle)
 4. [Hooks](#hooks)
 5. [Etc](#etc)
-   1. Assets
-   2. Styling
-   3. Context
-   4. Ref
-   5. Code spliting
-   6. Re-usable UI
-   7. Forms
-   8. Validations
-   9. Authentication
-   10. DOM Plugins
 
 
 
@@ -35,8 +25,6 @@ React Application을 보다 쉽게 작성하기위해 고안된 javascript + XML
 
 
 ## Components
-
-> 함수의 조각화
 
 1. 클래스형 컴포넌트 생성 = **Stateful**
   - State를 가질 수 있다.
@@ -171,7 +159,7 @@ React의 컴포넌트는 생명주기(**Lifecycle**)를 가지며, 각각의 흐
 
 1. [**state**, **dispatch**] = useReducer(**reducer**, **initialArg**, **init**)
   
-   - Redux 패턴의 
+   - useState 상위호환 (Redux 패턴에 익숙해질 필요가 있다)
 2. useCallback(**fn**, **deps**) 
 
   - 메모이제이션된 **콜백**을 반환 	
@@ -191,14 +179,18 @@ React의 컴포넌트는 생명주기(**Lifecycle**)를 가지며, 각각의 흐
 
 
 
-[Top ↩](#react---memo)
-
-
-
 ## Etc
 
+> 샘플 코드: sample/*
+
 1. Assets
+   - Image 사용 방식 : import / public
+   - svg는 import 방식 선호
 2. Styling
+
+   - css 파일은 module로 사용시 파일명 .css => .module.css 변경 후 사용
+
+   - sass 사용시 node-sass 설치 :  `yarn add node-sass` || `npm i node-sass --save`
 3. Context
 4. Ref
 5. Code spliting
@@ -207,3 +199,29 @@ React의 컴포넌트는 생명주기(**Lifecycle**)를 가지며, 각각의 흐
 8. Validations
 9. Authentication
 10. DOM Plugins
+
+
+
+## React Router
+
+> 설치 :  `npm i --save react-router reat-router-dom` || `yarn add react-router react-router-dom`
+>
+> react-router는 샘플 코드 작성을 위해 설치했습니다. (실사용 X)
+
+
+
+1. BrowserRouter / HashRouter / MemoryRouter / StaticRouter
+2. Route
+   - UI Rendering을 책임지며 컴포넌트를 표현하는 3가지 방식이 존재한다
+     - render / component / children
+   - Route path를 사용하지 않는 컴포넌트는 항상 표시한다.
+3. Swtich
+   - location과 일치하는 **첫번째** 라우트 컴포넌트를 표시한다
+4. withRouter
+   - 라우트 컴포넌트가 아닌 일반 컴포넌트에 math, location, history 전달
+5. NavLink / Link
+   - NavLink : location 일치 시 .active 제공 / activeClassName 프로퍼티로 커스컴 클래스 설정도 가능
+6. Redirect
+
+
+

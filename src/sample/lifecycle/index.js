@@ -2,7 +2,7 @@ import React from 'react';
 
 import { WithWillUnmount } from '../hoc';
 
-class LifeCycleComponent extends React.Component {
+class SampleLifeCycle extends React.Component {
   state = {
     name: 'Lifecycle',
     isUpdated: 'Not yet!'
@@ -82,4 +82,4 @@ class LifeCycleComponent extends React.Component {
   }
 }
 
-export default WithWillUnmount(LifeCycleComponent);
+export default WithWillUnmount(SampleLifeCycle);
