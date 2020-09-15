@@ -1,0 +1,10 @@
+export const TODO_ADD = 'TODO_ADD';
+export const TODO_REMOVE = 'TODO_REMOVE';
+export const TODO_TOGGLE = 'TODO_TOGGLE';
+export const TODO_FILTER = 'TODO_FILTER';
+
+export const FILTER = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_COMPLETED: 'SHOW_COMPLETED',
+  SHOW_ACTIVE: 'SHOW_ACTIVE'
+}

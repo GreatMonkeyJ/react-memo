@@ -225,3 +225,21 @@ React의 컴포넌트는 생명주기(**Lifecycle**)를 가지며, 각각의 흐
 
 
 
+## Redux
+
+> 설치 :  `npm i --save redux react-redux` || `yarn add redux react-redux`
+
+> Redux DevTools : [github: Redux-DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
+
+1. Action
+2. ActionCreator
+3. Dispatch
+4. Reducer
+5. Store
+6. Provider
+7. Connect
+8. mapStateToProps / mapDispatchToProps
+9. middleware
+   1. redux-thunk
+   2. redux-saga
+

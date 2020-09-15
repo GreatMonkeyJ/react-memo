@@ -12,6 +12,8 @@ import SampleLifeCycle from './sample/lifecycle';
 import SampleHooks from './sample/hooks';
 import SampleRouter from './sample/router';
 
+import SampleRedux from './sample/redux';
+
 class App extends React.Component {
   render() {
     return (
@@ -19,6 +21,8 @@ class App extends React.Component {
         <h3>NavLink</h3>
         <nav className={Classes.Nav}>
           <NavLink to="/" exact activeClassName={Classes.Active}>Home</NavLink>
+          <span> | </span>
+          <NavLink to="/redux" activeClassName={Classes.Active}>Redux</NavLink>
           <span> | </span>
           <NavLink to="/sample-router/history" activeClassName={Classes.Active}>SampleHistory</NavLink>
           <span> | </span>
@@ -33,6 +37,8 @@ class App extends React.Component {
         <div>
           <Link to="/">Home</Link>
           <span> | </span>
+          <Link to="/redux">Redux</Link>
+          <span> | </span>
           <Link to="/sample-router/history">SampleHistory</Link>
           <span> | </span>
           <Link to="/sample-router/location">SampleLocation</Link>
@@ -43,6 +49,7 @@ class App extends React.Component {
         <hr />
 
         <Switch>
+          <Route path="/redux" component={SampleRedux}/>
           <Route path="/sample-render" render={() => (<h3>Sample Render</h3>)} />
           <Route path="/sample-router" component={SampleRouter} />
           <Route path="/" exact>
