@@ -11,8 +11,8 @@ import { ClassComponent, FunctionalComponent } from './sample/components';
 import SampleLifeCycle from './sample/lifecycle';
 import SampleHooks from './sample/hooks';
 import SampleRouter from './sample/router';
-
 import SampleRedux from './sample/redux';
+import SampleEtc from './sample/etc';
 
 class App extends React.Component {
   render() {
@@ -21,6 +21,8 @@ class App extends React.Component {
         <h3>NavLink</h3>
         <nav className={Classes.Nav}>
           <NavLink to="/" exact activeClassName={Classes.Active}>Home</NavLink>
+          <span> | </span>
+          <NavLink to="/etc" activeClassName={Classes.Active}>Etc</NavLink>
           <span> | </span>
           <NavLink to="/redux" activeClassName={Classes.Active}>Redux</NavLink>
           <span> | </span>
@@ -37,6 +39,8 @@ class App extends React.Component {
         <div>
           <Link to="/">Home</Link>
           <span> | </span>
+          <Link to="/etc">Etc</Link>
+          <span> | </span>
           <Link to="/redux">Redux</Link>
           <span> | </span>
           <Link to="/sample-router/history">SampleHistory</Link>
@@ -49,6 +53,7 @@ class App extends React.Component {
         <hr />
 
         <Switch>
+          <Route path="/etc" component={SampleEtc}/>
           <Route path="/redux" component={SampleRedux}/>
           <Route path="/sample-render" render={() => (<h3>Sample Render</h3>)} />
           <Route path="/sample-router" component={SampleRouter} />

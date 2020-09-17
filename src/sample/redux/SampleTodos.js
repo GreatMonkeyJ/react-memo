@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { FILTER } from './constant/actionTypes';
 
 // Actions
+import * as actions from './actions';
 import * as todos from './actions/todos';
 import { filterTodo } from './actions/filter';
 
@@ -26,7 +27,6 @@ const TodoList = ({ todos, toggleTodo, removeTodo }) => {
     </ul>
   )
 }
-
 class SampleTodos extends React.Component {
   inputRef = null;
 
@@ -40,12 +40,11 @@ class SampleTodos extends React.Component {
             AddTodo :
             <input type="text" ref={node => this.inputRef = node} placeholder="type Todo" />
             <button type="button" onClick={() => this.props.addTodo(this.inputRef.value)}>addTodo</button>
+            <button type="button" onClick={() => this.props.asyncAddTodo(this.inputRef.value)}>asyncAddTodo</button>
           </div>
           <div>
             Filter :
-            <button type="button" onClick={() => this.props.filterTodo(FILTER.SHOW_ALL)}>All</button>
-            <button type="button" onClick={() => this.props.filterTodo(FILTER.SHOW_ACTIVE)}>Active</button>
-            <button type="button" onClick={() => this.props.filterTodo(FILTER.SHOW_COMPLETED)}>Completed</button>
+             {Object.keys(FILTER).map(filter => (<button type="button" key={filter} onClick={() => this.props.filterTodo(filter)}>{JSON.stringify(filter)}</button>))}
           </div>
           <div>
             TodoList :
@@ -79,6 +78,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     addTodo: text => dispatch(todos.addTodo(text)),
+    asyncAddTodo: text => dispatch(actions.asyncAddTodo(text)),
     removeTodo: id => dispatch(todos.removeTodo(id)),
     toggleTodo: id => dispatch(todos.toggleTodo(id)),
     filterTodo: filter => dispatch(filterTodo(filter))

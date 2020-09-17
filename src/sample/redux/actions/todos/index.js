@@ -10,6 +10,13 @@ export const addTodo = text => {
   }
 };
 
+export const asyncAddTodo = text => dispatch => {
+  setTimeout(() => {
+    return dispatch(addTodo(text))
+  }, 1000);
+}
+
+
 export const removeTodo = id => {
   return {
     type: actionTypes.TODO_REMOVE,

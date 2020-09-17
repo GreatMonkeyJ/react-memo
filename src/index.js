@@ -7,6 +7,10 @@ import * as serviceWorker from './serviceWorker';
 
 const app = (
   <BrowserRouter>
+    {/*
+      basename="/build"
+      /path => /build/path
+    */}
     <App />
   </BrowserRouter>
 );

@@ -6,7 +6,10 @@
 2. [Components](#components)
 3. [Lifecycle](#lifecycle)
 4. [Hooks](#hooks)
-5. [Etc](#etc)
+5. [React Router](#react-router)
+6. [Redux](#redux)
+7. [Deployment](#deployment)
+8. [Etc](#etc)
 
 
 
@@ -26,18 +29,23 @@ React Application을 보다 쉽게 작성하기위해 고안된 javascript + XML
 
 ## Components
 
-1. 클래스형 컴포넌트 생성 = **Stateful**
-  - State를 가질 수 있다.
-2. 함수형 컴포넌트 생성 = **Stateless**
-   - State를 가질 수 없다. (**Hook** 사용시 예외)
-3. HOC (Higher-Order-Components)
-   - 컴포넌트 로직 재활용을 위해 사용한다
+클래스형 컴포넌트 생성 = **Stateful**
+
+- State를 가질 수 있다.
+
+함수형 컴포넌트 생성 = **Stateless**
+
+- State를 가질 수 없다. (**Hook** 사용시 예외)
+
+HOC (Higher-Order-Components)
+
+- 컴포넌트 로직 재활용을 위해 사용한다
 
 
 
 ## State Vs Props
 
-**State** : 함수 안에서의 지역 변수와 동일하다.
+**State** : 함수 안에서의 지역 변수와 동일하다. (**변경가능**)
 
 *Plain JS Function*
 
@@ -63,7 +71,7 @@ class Foo extends React.Component {
 }
 ```
 
-**Props** : 함수의 파라미터값과 동일하다.
+**Props** : 함수의 파라미터값과 동일하다. (**변경불가**)
 
 *Plain JS Function*
 
@@ -179,67 +187,93 @@ React의 컴포넌트는 생명주기(**Lifecycle**)를 가지며, 각각의 흐
 
 
 
-## Etc
-
-> 샘플 코드: sample/*
-
-1. Assets
-   - Image 사용 방식 : import / public
-   - svg는 import 방식 선호
-2. Styling
-
-   - css 파일은 module로 사용시 파일명 .css => .module.css 변경 후 사용
-
-   - sass 사용시 node-sass 설치 :  `yarn add node-sass` || `npm i node-sass --save`
-3. Context
-4. Ref
-5. Code spliting
-6. Re-usable UI
-7. Forms
-8. Validations
-9. Authentication
-10. DOM Plugins
-
-
-
 ## React Router
 
-> 설치 :  `npm i --save react-router reat-router-dom` || `yarn add react-router react-router-dom`
+> 설치 :  `npm i --save react-router reat-router-dom` / `yarn add react-router react-router-dom`
 >
-> react-router는 샘플 코드 작성을 위해 설치했습니다. (실사용 X)
+> react-router (실사용 X)
 
 
 
-1. BrowserRouter / HashRouter / MemoryRouter / StaticRouter
-2. Route
-   - UI Rendering을 책임지며 컴포넌트를 표현하는 3가지 방식이 존재한다
-     - render / component / children
-   - Route path를 사용하지 않는 컴포넌트는 항상 표시한다.
-3. Swtich
-   - location과 일치하는 **첫번째** 라우트 컴포넌트를 표시한다
-4. withRouter
-   - 라우트 컴포넌트가 아닌 일반 컴포넌트에 math, location, history 전달
-5. NavLink / Link
-   - NavLink : location 일치 시 .active 제공 / activeClassName 프로퍼티로 커스컴 클래스 설정도 가능
-6. Redirect
+**BrowserRouter** : localhost:3000/about
+
+**HashRouter** : localhost:3000/#/about
+
+**Route**
+
+- UI Rendering을 책임지며 컴포넌트를 표현하는 3가지 방식이 존재한다.
+  - render / component / children
+- Route path를 사용하지 않는 컴포넌트는 **항상** 표시된다.
+
+**Swtich** : location과 일치하는 **첫번째** 라우트 컴포넌트를 표시한다.
+
+**withRouter** : 라우트 컴포넌트가 아닌 일반 컴포넌트에 math, location, history 정보를 전달한다.
+
+**NavLink / Link** : NavLink : location 일치 시 .active 클래스를 제공 및 activeClassName 프로퍼티로 커스텀 클래를 설정할 수 있다.
+
+**Redirect** : 페이지 전환에 사용되며 변경된 location값은 이전 history 스택을 덮어쓴다.
 
 
 
 ## Redux
 
-> 설치 :  `npm i --save redux react-redux` || `yarn add redux react-redux`
+> 설치 :  `npm i --save redux react-redux` / `yarn add redux react-redux`
 
-> Redux DevTools : [github: Redux-DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
 
-1. Action
-2. ActionCreator
-3. Dispatch
-4. Reducer
-5. Store
-6. Provider
-7. Connect
-8. mapStateToProps / mapDispatchToProps
-9. middleware
-   1. redux-thunk
-   2. redux-saga
 
+**Redux Flow** : Action => Dispatch => Reducer => Store  => View 순환
+
+**Provider** : React <=> Redux 연결
+
+**Connect** : Redux Store <=> Component 연결 (mapStateToProps / mapDispatchToProps)
+
+**ApplyMiddleware** : Store => Middleware 연결
+
+**middleware** : 리덕스는 비동기 통신을 지원하지 않는다. 아래 2가지는 대표적인 비동기 통신을 위한 미들웨어이다.
+
+1. redux-thunk (Thunk 패턴 기반 미들웨어)
+   - `npm i --save redux-thunk` /`yarn add redux-thunk`
+
+2. redux-saga (Generator 함수 기반 미들웨어)
+
+   - `npm i --save redux-saga` /`yarn add redux-saga`
+
+
+
+## Deployment
+
+
+
+**404: Page Not Found** 
+
+Client-Routing 적용된 SPA는 단일 페이지(index.html)만 존재하는 특성상 주소창에 url을 직접 입력하거나 새로고침등으로 
+
+페이지 접속이 이루어지면 해당 페이지를 찾지 못한다. Fallback 설정이 필수이며 설정 방식은 배포 서버 환경에 따라 상이하다.
+
+- Live-server :
+  - Vscode extentions 설치 시 : 환경설정 => 404 검색 => index.html 추가
+- Netlify :
+  - => `&& echo ‘/* /index.html 200’ | cat >build/_redirects`
+
+
+
+## Etc
+
+
+
+**Assets**
+
+- Image 사용 방식 : import / public / require
+- svg는 import 방식 선호
+
+**Styling**
+
+- css 파일은 module로 사용시 파일명 .css => .module.css 변경 후 사용
+
+- sass 사용시 node-sass 설치 필요 :  `npm i node-sass --save` / `yarn add node-sass` 
+
+
+
+**Memo** 프로젝트 추가 및 적용 예정
+
+**Code spliting**  / Re-usable UI / Forms / **Validations** / **Authentication** / **DOM Plugins**
