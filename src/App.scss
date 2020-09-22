@@ -1,0 +1,9 @@
+@import '~src/assets/scss/defaults/reset';
+@import '~src/assets/scss/defaults/fonts';
+@import '~src/assets/scss/mixins';
+
+@include languages((
+  'ko': (-apple-system, BlinkMacSystemFont, '맑은 고딕', 'Malgun Gothic', '-apple-system', '돋움', Arial, verdana, sans-serif),
+  'en': (Arial, sans-serif),
+  'ja': ('Meiryo', 'メイリオ', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif),
+));

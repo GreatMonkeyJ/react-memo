@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@containers/*": [
+        "./src/containers/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@hoc/*": [
+        "./src/hoc/*"
+      ],
+      "@actions": [
+        "./src/redux/actions"
+      ],
+      "@constants": [
+        "./src/redux/actions/constants"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@images/*": [
+        "./src/assets/images*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}

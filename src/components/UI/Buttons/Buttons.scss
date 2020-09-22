@@ -1,0 +1,16 @@
+@import '~src/assets/scss/variables';
+
+/* Buttons */
+button[type='button'] {
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+
+  &:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+
+  &.success { color: $success; }
+  &.danger { color: $danger; }
+}

@@ -1,0 +1,13 @@
+@import '~src/assets/scss/variables';
+
+.navLink, .link {
+  display: inline-block;
+  margin: 0 12px;
+  color: $linkColor;
+  font-size: 18px;
+
+  &.active {
+    color: $linkActiveColor;
+    text-shadow: 0 0 0 $linkActiveColor;
+  }
+}

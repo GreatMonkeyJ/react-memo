@@ -1,0 +1,70 @@
+/* Resets */
+@charset 'utf-8';
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i,
+ol, ul, li, fieldset, form, label,
+table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, header, footer, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+	font: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: none;
+  -webkit-text-size-adjust:none;
+  vertical-align: baseline;
+}
+
+header, footer, nav, section, main {
+  display: block;
+}
+
+html, body {
+  overflow: hidden;
+  min-width: 260px;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
